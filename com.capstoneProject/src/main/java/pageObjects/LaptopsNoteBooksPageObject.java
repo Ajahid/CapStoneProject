@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import core.Base;
+import utilities.Utilities;
 
 public class LaptopsNoteBooksPageObject extends Base {
 	
@@ -14,7 +15,9 @@ public class LaptopsNoteBooksPageObject extends Base {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
+
+	@FindBy (xpath = "//a[text()='TEST ENVIRONMENT']")
+	private WebElement desktopMainPageText;
 	@FindBy (xpath = "//a[text()='Laptops & Notebooks']")
 	private WebElement laptopsNoteBooksbuttonMainPage;
 	@FindBy (xpath = "//a[text()='Macs (0)']")
@@ -23,48 +26,12 @@ public class LaptopsNoteBooksPageObject extends Base {
 	private WebElement windowsButtonMainPage;
 	@FindBy (xpath = "//a[text()='Show All Laptops & Notebooks']")
 	private WebElement showAllLaptopsNoteBooksMainPage;
-	@FindBy (xpath = "//span[text()='Currency']")
-	private WebElement currencyButton;
-	@FindBy (xpath = "//i[@class='fa fa-phone']")
-	private WebElement contactNumber;
-	@FindBy (xpath = "//span[text()='My Account']")
-	private WebElement myAccount;
-	@FindBy (xpath = "//span[text()='Wish List (0)']")
-	private WebElement wishList;
-	@FindBy (xpath = "//span[text()='Shopping Cart']")
-	private WebElement shoppingCart;
-	@FindBy (xpath = "//span[text()='Checkout']")
-	private WebElement checkOut;
-	@FindBy (xpath = "//input[starts-with(@class,'form-control')]")
-	private WebElement searchBar;
-	@FindBy (xpath = "//button[starts-with(@class,'btn btn-default')]")
-	private WebElement searchButton;
-	@FindBy (xpath = "//button[starts-with(@class,'btn btn-inverse')]")
-	private WebElement itemsInCart;
-	@FindBy (xpath = "//a[text()='TEST ENVIRONMENT']")
-	private WebElement validateText;
-	@FindBy (xpath = "//a[text()='Desktops']")
-	private WebElement desktopButton;
-	@FindBy (xpath = "//a[text()='Laptops & Notebooks']")
-	private WebElement laptopsNoteBooksButton2ndPage;
-	@FindBy (xpath = "//a[text()='Components']")
-	private WebElement componentsButton;
-	@FindBy (xpath = "//a[text()='Tablets']")
-	private WebElement tabletsButton;
-	@FindBy (xpath = "//a[text()='Software']")
-	private WebElement softwareButton;
-	@FindBy (xpath = "//a[text()='Phones & PDAs']")
-	private WebElement software;
-	@FindBy (xpath = "//a[text()='Cameras']")
-	private WebElement cameraButton;
-	@FindBy (xpath = "//a[text()='MP3 Players']")
-	private WebElement mp3PlayerButton;
 	@FindBy (xpath = "//i[@class='fa fa-home']")
 	private WebElement homeButton;
 	@FindBy (xpath = "//div[@id='product-category']//ul//li//a[text()='Laptops & Notebooks']")
 	private WebElement laptopsNoteBooksNearHomeButton;
 	@FindBy (xpath = "//a[text()='Desktops (13)']")
-	private WebElement desktopsButton;
+	private WebElement desktopsButtonSideTable;
 	@FindBy (xpath = "//div[@class='list-group']//following-sibling::a[@href='http://tek-school.com/retail/index.php?route=product/category&path=18']")
 	private WebElement laptopsNoteBooksSideTableButton;
 	@FindBy (xpath = "//div[@class='list-group']//following-sibling::a[@href='http://tek-school.com/retail/index.php?route=product/category&path=18_46']")
@@ -75,6 +42,8 @@ public class LaptopsNoteBooksPageObject extends Base {
 	private WebElement componentsButtonSideTable;
 	@FindBy (xpath = "//div[@class='list-group']//following-sibling::a[@href='http://tek-school.com/retail/index.php?route=product/category&path=57']")
 	private WebElement tabletsButtonSideTable;
+	@FindBy (xpath = "//div[@class='list-group']//following-sibling::a[@href='http://tek-school.com/retail/index.php?route=product/category&path=17']")
+	private WebElement softwareButtonSideTable;
 	@FindBy (xpath = "http://tek-school.com/retail/index.php?route=product/category&path=24")
 	private WebElement phonesPDAsButtonSideTable;
 	@FindBy (xpath = "http://tek-school.com/retail/index.php?route=product/category&path=33")
@@ -82,13 +51,13 @@ public class LaptopsNoteBooksPageObject extends Base {
 	@FindBy (xpath = "http://tek-school.com/retail/index.php?route=product/category&path=34")
 	private WebElement mp3PlayersButtonSideTable;
 	@FindBy (xpath = "//img[@src='http://tek-school.com/retail/image/cache/catalog/demo/compaq_presario-182x182.jpg']")
-	private WebElement desktopPCImageLink;
+	private WebElement desktopPCImageCenterPage;
 	@FindBy (xpath = "//h2[text()='Laptops & Notebooks']")
 	private WebElement laptopNoteBookText;
 	@FindBy (xpath = "//img[@src='http://tek-school.com/retail/image/cache/catalog/demo/hp_2-80x80.jpg']")
 	private WebElement laptopImageUnderText;
-	@FindBy (xpath = "//*[@id=\"content\"]/div[1]/div[2]/p")
-	private WebElement laptopparagraphText; 
+	@FindBy (xpath = "//*[@id='content']/div[1]/div[2]/p")
+	private WebElement laptopParagraphText; 
 	@FindBy (xpath = "//h3[text()='Refine Search']")
 	private WebElement refineSearchText;
 	@FindBy (xpath = "//div/div//div//ul//li//a[@href='http://tek-school.com/retail/index.php?route=product/category&path=18_46']")
@@ -119,6 +88,12 @@ public class LaptopsNoteBooksPageObject extends Base {
 	private WebElement hpLP3065Price;
 	@FindBy (xpath = "//p[starts-with(text(),'Stop your co')]//following-sibling::p//following-sibling::span")
 	private WebElement hpLP3065EXTax;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[1]/div/div[2]/div[2]/button[1]/span")
+	private WebElement hpLP3065AddToCart;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[1]/div/div[2]/div[2]/button[2]")
+	private WebElement hpLP3065AddToWishList;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[1]/div/div[2]/div[2]/button[3]")
+	private WebElement hpLP3065CompareProduct; 
 	@FindBy (xpath = "//img[@title='MacBook']")
 	private WebElement macBookImage;
 	@FindBy (xpath = "//a[text()='MacBook']")
@@ -129,6 +104,12 @@ public class LaptopsNoteBooksPageObject extends Base {
 	private WebElement macBookPrice;
 	@FindBy (xpath = "//p[starts-with(text(),'Intel Core 2 Duo')]//following-sibling::p//following-sibling::span")
 	private WebElement macBookEXTax;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[2]/div/div[2]/div[2]/button[1]")
+	private WebElement macBookAddToCart;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[2]/div/div[2]/div[2]/button[2]")
+	private WebElement macBookAddToWishList;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[2]/div/div[2]/div[2]/button[3]")
+	private WebElement macBookCompareProduct; 
 	@FindBy (xpath = "//img[@title='MacBook Air']")
 	private WebElement macBookAirImage;
 	@FindBy (xpath = "//a[text()='MacBook Air']")
@@ -139,6 +120,12 @@ public class LaptopsNoteBooksPageObject extends Base {
 	private WebElement macBookAirPrice;
 	@FindBy (xpath = "//p[starts-with(text(),'MacBook Air ')]//following-sibling::p//following-sibling::span")
 	private WebElement macBookAirEXTax; 
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[3]/div/div[2]/div[2]/button[1]/span")
+	private WebElement macBookAirAddToCart;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[3]/div/div[2]/div[2]/button[2]")
+	private WebElement macBookAirAddToWishList;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[3]/div/div[2]/div[2]/button[3]")
+	private WebElement macBookAirCompareProduct; 
 	@FindBy (xpath = "//img[@title='MacBook Pro']")
 	private WebElement macBookProImage;
 	@FindBy (xpath = "//a[text()='MacBook Pro']")
@@ -149,6 +136,12 @@ public class LaptopsNoteBooksPageObject extends Base {
 	private WebElement macBookProPrice;
 	@FindBy (xpath = "//p[starts-with(text(),'Latest Intel mobile')]//following-sibling::p//following-sibling::span")
 	private WebElement macBookProEXTax;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[4]/div/div[2]/div[2]/button[1]/span")
+	private WebElement macBookProAddToCart;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[4]/div/div[2]/div[2]/button[2]")
+	private WebElement macBookProAddToWishList;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[4]/div/div[2]/div[2]/button[3]")
+	private WebElement macBookProCompareProduct; 
 	@FindBy (xpath = "//img[@title='Sony VAIO']")
 	private WebElement sonyVaioImage;
 	@FindBy (xpath = "//a[text()='Sony VAIO']")
@@ -159,49 +152,36 @@ public class LaptopsNoteBooksPageObject extends Base {
 	private WebElement sonyVaioPrice;
 	@FindBy (xpath = "//p[starts-with(text(),'Unprecedented')]//following-sibling::p//following-sibling::span")
 	private WebElement sonyVaioEXTax;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[5]/div/div[2]/div[2]/button[1]/span")
+	private WebElement sonyVaioAddToCart;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[5]/div/div[2]/div[2]/button[2]")
+	private WebElement sonyVaioAddToWishList;
+	@FindBy (xpath = "//div[contains(@id,'content')]/div[4]/div[5]/div/div[2]/div[2]/button[3]")
+	private WebElement sonyVaioCompareProduct; 
 	@FindBy (xpath = "//div[@class='col-sm-6 text-right']")
 	private WebElement showingPageText;
-	@FindBy (xpath = "//h5[text()='Information']")
-	private WebElement informtionText;
-	@FindBy (xpath = "//a[text()='About Us']")
-	private WebElement aboutUsButton;
-	@FindBy (xpath = "//a[text()='Delivery Information']")
-	private WebElement deliveryInformationButton;
-	@FindBy (xpath = "Privacy Policy")
-	private WebElement privacyPolicyButton;
-	@FindBy (xpath = "Terms & Conditions")
-	private WebElement termsConditionsbutton;
-	@FindBy (xpath = "//h5[text()='Customer Service']")
-	private WebElement customerServiceText;
-	@FindBy (xpath = "//a[text()='Contact Us']")
-	private WebElement contactUsButton;
-	@FindBy (xpath = "//a[text()='Returns']")
-	private WebElement returnsButton;
-	@FindBy (xpath = "//a[text()='Site Map']")
-	private WebElement siteMapButton;
-	@FindBy (xpath = "//h5[text()='Extras']")
-	private WebElement extrasText;
-	@FindBy (xpath = "//a[text()='Brands']")
-	private WebElement brandsButton;
-	@FindBy (xpath = "//a[text()='Gift Certificates']")
-	private WebElement giftCertificatesButton;
-	@FindBy (xpath = "//a[text()='Affiliate']")
-	private WebElement affiliateButton;
-	@FindBy (xpath = "//a[text()='Specials']")
-	private WebElement specialButton;
-	@FindBy (xpath = "//h5[text()='My Account']")
-	private WebElement myAccountText;
-	@FindBy (xpath = "//a[text()='My Account']")
-	private WebElement myAccountBottomOfThePage;
-	@FindBy (xpath = "//a[text()='Order History']")
-	private WebElement orderHistoryButton;
-	@FindBy (xpath = "//a[text()='Wish List']")
-	private WebElement wishListBottomOfThePage;
-	@FindBy (xpath = "//a[text()='Newsletter']")
-	private WebElement newsLetterButton;
-	@FindBy (xpath = "//p[text()='Powered By ']")
-	private WebElement poweredByText;
-	
+	@FindBy (xpath = "//button[@id='button-cart']")
+	private WebElement macBookCart;
+	@FindBy (xpath = "//div[starts-with(@class,'alert alert')]")
+	private WebElement successMessage;
+	@FindBy (xpath = "//span[@id='cart-total']//i[@class='fa fa-shopping-cart']")
+	private WebElement cartItemsButton;
+	@FindBy (xpath = "//table[@class='table table-striped']//following-sibling::td//following-sibling::td[text()='$602.00']")
+	private WebElement cartTotalPrice;
+	@FindBy (xpath = "//i[@class='fa fa-times']")
+	private WebElement cancelCartItem;
+	@FindBy (xpath = "//p[text()='Your shopping cart is empty!']")
+	private WebElement emptyCart;
+	@FindBy (xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement successMessageCompareProduct;
+	@FindBy (xpath = "//a[text()='product comparison']")
+	private WebElement productComparisonLink;
+	@FindBy (xpath = "//h1[text()='Product Comparison']")
+	private WebElement productComparisonChart;
+	@FindBy (xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement sonyWishListMessage;
+	@FindBy (xpath = "//h2[text()='$2,000.00']")
+	private WebElement macBookProPriceTag;
 	
 	
 	
@@ -221,119 +201,15 @@ public class LaptopsNoteBooksPageObject extends Base {
 	public void clickHomeButtonLaptopsNoteBooksPage() {
 		homeButton.click();
 	}
-	public void clickLaptopsNoteBooksNearHomeButton() {
-		laptopsNoteBooksNearHomeButton.click();
+
+	public void AddToCarthpLP3065() {
+		hpLP3065AddToCart.click();
 	}
-	public void clickDesktops() {
-		desktopsButton.click();
+	public void AddToWishListhpLP3065() {
+		hpLP3065AddToWishList.click();
 	}
-	public void clickLaptopsNoteBooksSideTable() {
-		laptopsNoteBooksSideTableButton.click();
-	}
-	public void clickComponentsSideTable() {
-		componentsButtonSideTable.click();
-	}
-	public void clickMacsSideTable() {
-		macsButtonSideTable.click();
-	}
-	public void clickWindowsSideTable() {
-		windowsButtonSideTable.click();
-	}
-	public void clickTabletsSideTable() {
-		tabletsButtonSideTable.click();
-	}
-	public void clickPhonesPDAsSideTable() {
-		phonesPDAsButtonSideTable.click();
-	}
-	public void clickCamerasSideTable() {
-		camerasButtonSideTable.click();
-	}
-	public void clickMP3PlayersSideTable() {
-		mp3PlayersButtonSideTable.click();
-	}
-	public void clickDesktopPCImage() {
-		desktopPCImageLink.click();
-	}
-	public boolean validateLaptopNoteBookText() {
-		if(laptopNoteBookText.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public boolean verifyLaptopImage() {
-		if(laptopImageUnderText.isDisplayed())
-		return true;
-		else
-			return false;
-	}
-	public boolean verifyLaptopparagraphText() {
-		if(laptopparagraphText.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public boolean verifyRefineSearchText() {
-		if (refineSearchText.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public void clickMacsUnderRefineSearch() {
-		macsUnderRefineSearch.click();
-	}
-	public void clickWindowUnderRefineSearch() {
-		windowsUnderRefineSearch.click();
-	}
-	public void clickListView() {
-		listViewbutton.click();	
-	}
-	public void clickGridView() {
-		gridViewButton.click();
-	}
-	public void clickcompareProduct() {
-		compareProductLink.click();
-	}
-	public boolean verifySortByText() {
-		if (sortByText.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public void clickSortByTab() {
-		sortByTab.click();
-	}
-	public boolean verifyShowText() {
-		if(showText.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public void clickshowTab() {
-		showTab.click();
-	}
-	public void clickHPLP3065Image() {
-		hpLP3065Image.click();
-	}
-	public void clickHPLP3065Link() {
-		hpLP3065Link.click();
-	}
-	public boolean verifyHPLP3065Text() {
-		if(hpLP3065Text.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public boolean verifyHPLP3065Price() {
-		if (hpLP3065Price.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public boolean verifyHPLP3065EXTax() {
-		if (hpLP3065EXTax.isDisplayed())
-			return true;
-		else 
-			return false;
+	public void compareProducthpLP3065() {
+		hpLP3065CompareProduct.click();
 	}
 	public void clickMacBookImage() {
 		macBookImage.click();
@@ -383,9 +259,7 @@ public class LaptopsNoteBooksPageObject extends Base {
 		else
 			return false;
 	}
-	public void clickMacBookProImage() {
-		macBookProImage.click();
-	}
+	
 	public void clickMacBookProLink() {
 		macBookProLink.click();
 	}
@@ -437,80 +311,107 @@ public class LaptopsNoteBooksPageObject extends Base {
 		else
 			return false;
 	}
-	public boolean verifyInformtionText() {
-		if(informtionText.isDisplayed())
+	
+	public void clickMacBookCart() {
+		macBookCart.click();
+		
+	}
+	
+	public boolean verfiySuccessMessage() {
+		if(successMessage.isDisplayed())
+			return true;
+			else
+				return false;
+		
+	}
+	
+	public void clickCartItems() {
+		
+		cartItemsButton.click();
+	}
+	
+	public boolean verifycartTotal() {
+		
+		if(cartTotalPrice.isDisplayed())
 			return true;
 		else
 			return false;
 	}
-	public void clickAboutUsButton() {
-		aboutUsButton.click();
+	
+	public void clickCancelCartItem() {
+		cancelCartItem.click();
 	}
-	public void verifyDeliveryInformationButton() {
-		deliveryInformationButton.click();
-	}
-	public void clickPrivacyPolicyButton() {
-		privacyPolicyButton.click();
-	}
-	public void clicktermsConditionsbutton() {
-		termsConditionsbutton.click();
-	}
-	public boolean verifyCustomerServiceText() {
-		if(customerServiceText.isDisplayed())
+	
+	public boolean verifyEmptyCart() {
+		
+		if(emptyCart.isDisplayed())
 			return true;
 		else
 			return false;
 	}
-	public void clickContactUsButton() {
-		contactUsButton.click();
+	
+	public void clickMacBookCompareProduct() {
+		
+		macBookCompareProduct.click();
 	}
-	public void clickReturnsButton() {
-		returnsButton.click();
+	
+	public void clickMacBookAirCompareProduct() {
+		
+		macBookAirCompareProduct.click();
 	}
-	public void clickSiteMapButton() {
-		siteMapButton.click();
-	}
-	public boolean verifyExtrasText() {
-		if (extrasText.isDisplayed())
+	
+	public boolean verifySuccessMessageCompareProduct() {
+		
+		if (successMessageCompareProduct.isDisplayed())
 			return true;
 		else
 			return false;
 	}
-	public void clickBrandsButton() {
-		brandsButton.click();
+	
+	public void clickProductComparisonLink() {
+		productComparisonLink.click();
 	}
-	public void clickGiftCertificatesButton() {
-		giftCertificatesButton.click();
-	}
-	public void clickAffiliateButton() {
-		affiliateButton.click();
-	}
-	public void clickSpecialButton() {
-		specialButton.click();
-	}
-	public boolean verifyMyAccountText() {
-		if(myAccountText.isDisplayed())
+	
+	public boolean verifyProductComparisonChart() {
+		
+		if(productComparisonChart.isDisplayed())
 			return true;
 		else
 			return false;
 	}
-	public void clickMyAccountBottomOfThePage() {
-		myAccountBottomOfThePage.click();
+	
+	public void clickSonyVaioAddToWishList() {
+		
+		sonyVaioAddToWishList.click();
 	}
-	public void clickOrderHistoryButton() {
-		orderHistoryButton.click();
-	}
-	public void clickWishListBottomOfThePage() {
-		wishListBottomOfThePage.click();
-	}
-	public void clickNewsLetterButton() {
-		newsLetterButton.click();
-	}
-	public boolean verifyPoweredByText() {
-		if(poweredByText.isDisplayed())
+	
+	public boolean verifySonyWishListMessage() {
+		
+		if(sonyWishListMessage.isDisplayed())
 			return true;
 		else
 			return false;
 	}
+	
+	public void clickMacBookProImage() {
+		macBookProImage.click();
+	}
+	
+	public boolean verifyMacBookProPriceTag() {
+		
+		if(macBookProPriceTag.isDisplayed())
+			return true;
+		else
+			return false;
+		
+	}
+	
+	public boolean verifyDesktopMainPageText() {
+		
+		if(desktopMainPageText.isDisplayed())
+			return true;
+			else
+				return false;
+	
 	
 }

@@ -27,7 +27,7 @@ public class Utilities extends Base{
 
 	public static void takeScreenShot(String fileName) throws IOException {
 		
-		String path = ".\\output\\screenShots\\";
+		String path = "C:\\Users\\jahid\\OneDrive\\Desktop\\JAWA WS\\com.phoneix\\output\\screenShots";
 		
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		
